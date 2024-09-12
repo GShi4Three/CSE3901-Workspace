@@ -95,7 +95,7 @@ return highest_occuring_val[0]
 end
 
 
-
+# Testing validity of methods, will delete later
 def main
 
     data = [1,2,2,2,3,4]
