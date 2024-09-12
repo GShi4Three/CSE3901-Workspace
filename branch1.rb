@@ -28,23 +28,42 @@ def absolute(a)
   a
 end
 
-def factorial(a)
-  i = 1
-  j = 1
-  while i < a
-    i = i + 1
-    j = j * i
+def generateEven(lower, higher)
+  if lower % 2 == 0
+    lower = lower + 2
+  elsif lower % 2 == 1
+    lower = lower + 1
   end
-  j
+  while lower < higher
+     puts lower
+    lower = lower + 2
+  end
 end
 
-def is_prime(a)
-  i = 2
-  while i < a
-    if a % i == 0
-      return false
-    end
-    i = i + 1
+def generateSquare(lower, higher)
+  while lower < higher
+    puts lower * lower
+    lower = lower + 1
   end
-  true
 end
+
+def main
+  a = 5
+  b = 3
+  lower = 10
+  higher = 40
+ 
+  ex =  exponent(a, b)
+  ab = absolute(a)
+  ev = generateEven(lower, higher)
+  sq = generateSquare(lower, higher)
+
+  puts "Exponent: #{ex}"
+  puts "Absolute: #{ab}"
+  puts "Even: #{ev}"
+  puts "Square: #{sq}"
+end 
+
+
+
+main  # Call the main function
