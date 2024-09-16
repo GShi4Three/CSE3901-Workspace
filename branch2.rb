@@ -54,6 +54,7 @@ def farenheit_to_celsius(farenheit)
   puts "The value #{farenheit} degrees farenheit in celsius is #{celsius.round(2)} degrees celsius"
 end
 
+# Calling each method to test if they work properly
 convert_to_binary(50)
 convert_to_octal(100)
 convert_to_hexadecimal(200)
