@@ -44,19 +44,24 @@ def absolute(a)
 end
 
 
-def generateSquare(lower, higher, fileName)
+def generateSquares(lower, higher, fileName)
   squares = []
-  while lower < higher
-    puts lower * lower
+  while lower <= higher
+    squares << lower * lower
     lower = lower + 1
   end
   File.open(fileName, 'w') do |file|
-    evenNumbers.each { |num| file.puts num }
+    squares.each { |num| file.puts num }
   end
 end
 
 log(2, 8)
+
 exponent(3, 4)
+
+generateEven(15, 30, "even_numbers.txt")
+
 absolute(-190)
 absolute(190)
-generateEven(15, 30, "even_numbers.txt")
+
+generateSquares(1, 10, "square_numbers.txt")
