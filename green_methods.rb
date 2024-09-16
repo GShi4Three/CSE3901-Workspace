@@ -69,25 +69,25 @@ end
 
 def minimum(data)
 
-# Method assumes that data variable belongs to an array
+    # Method assumes that data variable belongs to an array
 
 
-# Edge case - if no elements are in input array
-return nil if data.empty?
+    # Edge case - if no elements are in input array
+    return nil if data.empty?
 
-# Set minimum value to the first element in input array
-min_val = data.first
+    # Set minimum value to the first element in input array
+    min_val = data.first
 
-# Iterate through data array
-data.each do |value|
-    # If value is smaller than min_val, set min_val to that value
-    if value < min_val
-        min_val = value
+    # Iterate through data array
+    data.each do |value|
+        # If value is smaller than min_val, set min_val to that value
+        if value < min_val
+            min_val = value
+        end
     end
-end
 
-# return min_val
-return min_val
+    # return min_val
+    return min_val
 
 end
 
@@ -96,41 +96,41 @@ def generate_odd_values(file_name, start_list, end_list)
     # Open file for writing
     File.open(file_name, 'w') do |file|
 
-    # Iterate through the range: (start, end) inclusive
-    while start_list <= end_list
-        # If value is odd, then write that value to the file
-        if start_list % 2 == 1
-            file.puts(start_list)
+        # Iterate through the range: (start, end) inclusive
+        while start_list <= end_list
+            # If value is odd, then write that value to the file
+            if start_list % 2 == 1
+                file.puts(start_list)
+            end
+            start_list+=1
         end
-        start_list+=1
+
     end
-end
 
 end
-
 
 
 def mode(data)
 
-# Method assumes that data variable belongs to an array 
+    # Method assumes that data variable belongs to an array 
 
-# Edge case - if no elements are in input array
-return nil if data.empty?
+    # Edge case - if no elements are in input array
+    return nil if data.empty?
 
 
-# Initialize an empty hash map
-hash_map = Hash.new(0)
+    # Initialize an empty hash map
+    hash_map = Hash.new(0)
 
-# Get occurrence of values within input array
-data.each do |value|
-    hash_map[value] += 1
-end
+    # Get occurrence of values within input array
+    data.each do |value|
+        hash_map[value] += 1
+    end
 
-# Find the mode in hash map
-highest_occuring_val = hash_map.max_by { |key, value| value }
+    # Find the mode in hash map
+    highest_occuring_val = hash_map.max_by { |key, value| value }
 
-# return mode
-return highest_occuring_val[0]
+    # return mode
+    return highest_occuring_val[0]
 
 end
 
@@ -152,6 +152,8 @@ def main
 
     tan_val = tan(60)
 
+    generate_odd_values("odd_numbers.txt", 1, 20)
+
     puts "Mode Value: #{val}"
 
     puts "Min Value: #{min}"
@@ -165,7 +167,4 @@ def main
     puts "Tan function: #{tan_val}"
 end
 
-
 main
-
-
