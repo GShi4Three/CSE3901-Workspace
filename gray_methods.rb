@@ -1,69 +1,67 @@
 def log(base, a)
-  Math.log(a) / Math.log(base)
+  puts "Log base #{base} of #{a} is #{Math.log(a, base)}"
 end
 
 def exponent(a, b)
-  i = 0
-  j = 1
-  if b > 0
-    while i < b
-      j = j * a
-      i = i + 1
+  if b == 0
+    result = 1
+  else
+    result = a
+    counter = 1
+    while counter < b
+      result = result * a
+      counter += 1
     end
-  elsif b == 0
-  j = 0
-  else 
-    while i > b
-    j = j / a
-    i = i - 1
-    end
-  end 
-
-end
-
-def absolute(a)
-  if a < 0
-    a = a * -1
   end
-  a
+puts "#{a} raised to the power of #{b} equals #{result}"
 end
 
-def generateEven(lower, higher)
+def generateEven(lower, higher, fileName)
   if lower % 2 == 0
     lower = lower + 2
   elsif lower % 2 == 1
     lower = lower + 1
   end
+  evenNumbers = [lower]
   while lower < higher
-     puts lower
     lower = lower + 2
+    evenNumbers << lower
   end
+
+  File.open(fileName, 'w') do |file|
+    evenNumbers.each { |num| file.puts num }
+  end
+  puts "Even numbers between #{lower} and #{higher} have been saved to #{fileName}."
 end
 
-def generateSquare(lower, higher)
-  while lower < higher
-    puts lower * lower
+def absolute(a)
+  if a < 0
+    absolute = a * -1
+  else
+    absolute = a
+  end
+  puts "The absolute value of #{a} is #{absolute}"
+end
+
+
+def generateSquares(lower, higher, fileName)
+  squares = []
+  while lower <= higher
+    squares << lower * lower
     lower = lower + 1
   end
+  File.open(fileName, 'w') do |file|
+    squares.each { |num| file.puts num }
+  end
 end
 
-def main
-  a = 5
-  b = 3
-  lower = 10
-  higher = 40
- 
-  ex =  exponent(a, b)
-  ab = absolute(a)
-  ev = generateEven(lower, higher)
-  sq = generateSquare(lower, higher)
+log(2, 8)
 
-  puts "Exponent: #{ex}"
-  puts "Absolute: #{ab}"
-  puts "Even: #{ev}"
-  puts "Square: #{sq}"
-end 
+exponent(3, 4)
 
+generateEven(15, 30, "even_numbers.txt")
 
+absolute(-190)
+absolute(190)
 
-main  # Call the main function
+generateSquares(1, 10, "square_numbers.txt")
