@@ -1,50 +1,62 @@
 def log(base, a)
-  Math.log(a) / Math.log(base)
+  puts "Log base #{base} of #{a} is #{Math.log(a, base)}"
 end
 
 def exponent(a, b)
-  i = 0
-  j = 1
-  if b > 0
-    while i < b
-      j = j * a
-      i = i + 1
+  if b == 0
+    result = 1
+  else
+    result = a
+    counter = 1
+    while counter < b
+      result = result * a
+      counter += 1
     end
-  elsif b == 0
-  j = 0
-  else 
-    while i > b
-    j = j / a
-    i = i - 1
-    end
-  end 
+  end
+puts "#{a} raised to the power of #{b} equals #{result}"
+end
 
+def generateEven(lower, higher, fileName)
+  if lower % 2 == 0
+    lower = lower + 2
+  elsif lower % 2 == 1
+    lower = lower + 1
+  end
+  evenNumbers = [lower]
+  while lower < higher
+    lower = lower + 2
+    evenNumbers << lower
+  end
+
+  File.open(fileName, 'w') do |file|
+    evenNumbers.each { |num| file.puts num }
+  end
+  puts "Even numbers between #{lower} and #{higher} have been saved to #{fileName}."
 end
 
 def absolute(a)
   if a < 0
-    a = a * -1
+    absolute = a * -1
+  else
+    absolute = a
   end
-  a
+  puts "The absolute value of #{a} is #{absolute}"
 end
 
-def factorial(a)
-  i = 1
-  j = 1
-  while i < a
-    i = i + 1
-    j = j * i
+
+def generateSquare(lower, higher, fileName)
+  squares = []
+  while lower < higher
+    puts lower * lower
+    lower = lower + 1
   end
-  j
+  File.open(fileName, 'w') do |file|
+    evenNumbers.each { |num| file.puts num }
+  end
 end
 
-def is_prime(a)
-  i = 2
-  while i < a
-    if a % i == 0
-      return false
-    end
-    i = i + 1
-  end
-  true
-end
+log(2, 8)
+exponent(3, 4)
+absolute(-190)
+absolute(190)
+generateEven(15, 30, "even_numbers.txt")
