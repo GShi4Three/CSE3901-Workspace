@@ -5,13 +5,12 @@ def calculate_mean(set)
   mean = total / elements
   puts "The mean of the set is #{mean}"
 end
-  def farenheit_to_celsius
-    puts "Input a celsius value: "
-    input = gets.chomp
-    celsius = input.to_f
-    farenheit = (celsius - 32.0) * 5.0/9.0
-    puts "The value #{celsius} degrees celsius in farenheit is #{farenheit} degrees farenheit"
-  end
+
+def farenheit_to_celsius(farenheit)
+  celsius = (farenheit - 32.0) * 5.0/9.0
+  puts "The value #{farenheit} degrees celsius in farenheit is #{celsius} degrees farenheit"
+end
+
   def find_largest_value 
     put "Input a set of values"
     input = gets.chomp
@@ -34,3 +33,7 @@ File.open("fibonachi_numbers.txt, w") do |file|
 end
 end
 end
+def main
+  
+ calculate_mean ([13, 27, 45, 34, 506])
+farenheit_to_celsius(86.0)
