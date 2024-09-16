@@ -107,6 +107,9 @@ def generate_odd_values(file_name, start_list, end_list)
 
     end
 
+    puts "Odd values between #{start_list} and #{end_list} have been saved to #{file_name}."
+
+
 end
 
 
@@ -152,19 +155,19 @@ def main
 
     tan_val = tan(60)
 
-    generate_odd_values("odd_numbers.txt", 1, 20)
-
-    puts "Mode Value: #{val}"
-
-    puts "Min Value: #{min}"
-
-    puts "Is it prime? #{num}"
-
     puts "Sin function: #{sin_val}"
 
     puts "Cos function: #{cos_val}"
 
     puts "Tan function: #{tan_val}"
+
+    puts "Is it prime? #{num}"
+
+    puts "Min Value: #{min}"
+
+    generate_odd_values("odd_numbers.txt", 1, 20)
+
+    puts "Mode Value: #{val}"
 end
 
 main
