@@ -1,4 +1,44 @@
 
+# Category 1 Methods - 
+
+
+def sin(n)
+
+    # Assuming user-supplied parameter (n) is in degrees
+
+    # Converting from degrees to radians to be passed into built in function
+
+    radians_val = n * (Math::PI / 180)
+
+    return Math.sin(radians_val)
+
+end
+
+def cos(n)
+
+    # Assuming user-supplied parameter (n) is in degrees
+
+    # Converting from degrees to radians to be passed into built in function
+
+    radians_val = n * (Math::PI / 180)
+
+    return Math.cos(radians_val)
+
+end
+
+def tan(n)
+
+    # Assuming user-supplied parameter (n) is in degrees
+
+    # Converting from degrees to radians to be passed into built in function
+
+    radians_val = n * (Math::PI / 180)
+
+    return Math.tan(radians_val)
+
+end
+
+# Category 2 Methods - 
 
 
 def is_prime(n)
@@ -106,11 +146,23 @@ def main
 
     num = is_prime(49)
 
+    sin_val = sin(60)
+
+    cos_val = cos(60)
+
+    tan_val = tan(60)
+
     puts "Mode Value: #{val}"
 
     puts "Min Value: #{min}"
 
     puts "Is it prime? #{num}"
+
+    puts "Sin function: #{sin_val}"
+
+    puts "Cos function: #{cos_val}"
+
+    puts "Tan function: #{tan_val}"
 end
 
 
