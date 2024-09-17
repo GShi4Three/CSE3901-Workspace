@@ -1,3 +1,6 @@
+
+require 'tk'
+
 class ExpressionEvaluator
   # JT Vendetti
   # Method for addition
@@ -77,6 +80,7 @@ class ExpressionEvaluator
     result
   end
 end
+
 # Testing the functions
 def main
   puts "Please enter an expression: "
@@ -87,4 +91,32 @@ def main
   puts "The result of the expression '#{expression}' is: #{result}"
 end
 
+root = TkRoot.new { title "Ruby Calculator" }
+
+TkLabel.new(root) do
+  text 'Enter expression:'
+  pack { padx 15; pady 15; side 'left' }
+end
+
+input = TkEntry.new(root).pack { padx 15; pady 15; side 'left' }
+result_label = TkLabel.new(root, text: 'Result:').pack { padx 15; pady 15; side 'left' }
+
+evaluator = ExpressionEvaluator.new
+
+TkButton.new(root) do
+  text 'Evaluate'
+  command proc {
+    begin
+      expression = input.get
+      result_value = evaluator.evaluate_expression(expression)
+      result_label.text = "Result: #{result_value}"
+    rescue => e
+      result_label.text = "Error: #{e.message}"
+    end
+  }
+  pack { padx 15; pady 15; side 'left' }
+end
+
+Tk.mainloop
 main
+
