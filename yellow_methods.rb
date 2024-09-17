@@ -43,7 +43,11 @@ def factorial(n)
 end
 # Multiple the number by 100 and divide to find the percentage of a value
 def percentage(a,b)
-  puts "The percentage #{a} is of #{b} is #{(a*100)/b}%"
+  if b <= 0
+    puts "Cannot divide by zero or find the percentage of a negative number."
+  else
+    puts "The percentage #{a} is of #{b} is #{(a*100)/b}%"
+  end
 end
 
 def median(data)

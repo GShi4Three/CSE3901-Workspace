@@ -76,7 +76,6 @@ class ExpressionEvaluator
       end
       i += 2
     end
-
     result
   end
 end
