@@ -1,6 +1,4 @@
-
 require 'tk'
-
 class ExpressionEvaluator
   # JT Vendetti
   # Method for addition
@@ -63,7 +61,6 @@ class ExpressionEvaluator
     end
 
     # Addition and subtraction last
-    # Khaled Saleh
     # Split the expression up based on addition or subtraction operators and store into an array
     tokens = tokens.join.split(/(\+|\-)/).map(&:strip)
     result = tokens[0].to_f
@@ -80,25 +77,32 @@ class ExpressionEvaluator
   end
 end
 
-# Testing the functions
-def main
-  puts "Please enter an expression: "
-  expression = gets.chomp
-  evaluator = ExpressionEvaluator.new
-  result = evaluator.evaluate_expression(expression)
-
-  puts "The result of the expression '#{expression}' is: #{result}"
-end
-
+# GUI created using TK library
+# Khaled Saleh
 root = TkRoot.new { title "Ruby Calculator" }
+root.geometry("800x200")
+
+label_font = TkFont.new('size' => 24)
+button_font = TkFont.new('size' => 24)
+entry_font = TkFont.new('size' => 24)
 
 TkLabel.new(root) do
   text 'Enter expression:'
+  font label_font
   pack { padx 15; pady 15; side 'left' }
 end
 
-input = TkEntry.new(root).pack { padx 15; pady 15; side 'left' }
-result_label = TkLabel.new(root, text: 'Result:').pack { padx 15; pady 15; side 'left' }
+input = TkEntry.new(root) do
+  font entry_font
+  width 30
+  pack { padx 15; pady 15; side 'left' }
+end
+
+result_label = TkLabel.new(root) do
+  text 'Result:'
+  font label_font
+  pack { padx 15; pady 15; side 'left' }
+end
 
 evaluator = ExpressionEvaluator.new
 
@@ -117,5 +121,3 @@ TkButton.new(root) do
 end
 
 Tk.mainloop
-main
-
