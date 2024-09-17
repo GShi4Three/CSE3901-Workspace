@@ -1,7 +1,5 @@
-
 # Category 1 Methods - 
-
-
+# Khaled Saleh
 def sin(n)
 
     # Assuming user-supplied parameter (n) is in degrees
@@ -40,7 +38,6 @@ end
 
 # Category 2 Methods - 
 
-
 def is_prime(n)
 
 
@@ -63,9 +60,6 @@ def is_prime(n)
     return true
 
 end
-
-
-
 
 def minimum(data)
 

@@ -61,8 +61,13 @@ def generateSquares(lower, higher, fileName)
 end
 # Testing functions by calling them
 log(2, 8)
+log(10, 100)
+log(1, 0)
 
 exponent(3, 4)
+exponent(3, 0)
+exponent(3, -2)
+exponent(0, 4)
 
 generateEven(15, 30, "even_numbers.txt")
 

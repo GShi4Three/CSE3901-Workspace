@@ -56,13 +56,29 @@ def farenheit_to_celsius(farenheit)
 end
 
 # Calling each method to test if they work properly
+convert_to_binary(-52)
+convert_to_binary(0)
 convert_to_binary(50)
+
+convert_to_octal(-111)
+convert_to_octal(0)
 convert_to_octal(100)
+
+convert_to_hexadecimal(-220)
+convert_to_hexadecimal(0)
 convert_to_hexadecimal(200)
 
-set = [13, 27, 45, 34, 506]
 
-mean(set)
-maximum(set)
+set1 = [13, 27, 45, 34, 506]
+set2 = [-13, 10027, 245, 0, 1]
+
+mean(set1)
+mean(set2)
+maximum(set1)
+maximum(set2)
+
 fibonacci_numbers(1000, "fibonacci_numbers.txt")
+
+farenheit_to_celsius(-54.0)
+farenheit_to_celsius(0)
 farenheit_to_celsius(87.0)

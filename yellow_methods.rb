@@ -1,15 +1,29 @@
+
 # Completing #1 in Category 1 using built-in methods
+# Gavin Shi
 def squareRoot(n)
-  puts "The square root of #{n} is: #{Math.sqrt(n)}"
+  if n <= 0
+    puts "Cannot find the square root of 0 or a negative number."
+  else
+    puts "The square root of #{n} is: #{Math.sqrt(n)}"
+  end
 end
 
 def cubeRoot(n)
-  puts "The cube root of #{n} is: #{Math.cbrt(n)}"
+  if n <= 0
+    puts "Cannot find the cube root of 0 or a negative number."
+  else
+    puts "The cube root of #{n} is: #{Math.cbrt(n)}"
+  end
 end
 # Testing category 1 methods
 squareRoot(16)
+squareRoot(0)
+squareRoot(-16)
 
 cubeRoot(27)
+cubeRoot(0)
+cubeRoot(-27)
 
 # Completing the yellow block in Category 2 using personalized methods
 def factorial(n)
@@ -77,9 +91,19 @@ def prime_numbers(limit, file_name)
 end
 
 # Testing functions
-data = [1,2,4,6,8,9,10]
+data1 = [1,2,4,6,8,9,10]
+data2 = [-100, 0, 1,2,4,6,8,9,10, 10213]
 
 factorial(10)
+factorial(0)
+factorial(-10)
+
 percentage(1,100)
-median(data)
+percentage(0,1)
+percentage(-10,100)
+percentage(10,0)
+
+median(data1)
+median(data2)
+
 prime_numbers(100, "prime_numbers.txt")
