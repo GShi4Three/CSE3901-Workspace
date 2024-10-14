@@ -12,50 +12,51 @@
 <body>
     <div class="box">
     <header>
-        <h1>Students and their Course Enrollment</h1>
+        <h1>Course Enrollment History</h1>
     </header>
-   
-        <section>
-            <h2>Here are the courses and their ID's:</h2>
     <table>
         <table border="1">
-        <tbody>
-        <tr>
-            <th>Name</th>
-            <th>Student ID</th>
-            <th>Courses</th>
-        </tr>
-        <!-- Rows should be populated dynamically here when backend logic for getting a student's data is completed-->
-    </tbody>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+        <tbody> <!-- Course list will go here --> </tbody>
     </table>
-        </section>
-        <h2>---------------------------</h2>
-    <section>
-        <h2>---------------------------</h2>
-        <h2>Additional Information</h2>
-        <ul>
-            <li>
-                ::marker
-                "Total Students: "
-            </li>
-            <li>
-                ::marker
-                "Courses Offered: "
-            </li>
-        </ul>
-    </section>
-    <section>
-        <h2>More Information</h2>
-        <ol>
-            <li>1.</li>
-            <li>2.</li>
-            <li>3.</li>
-            <li>4.</li>
-            <li>5.</li>
-        </ol>
-    </section>
-    <h2>---------------------------</h2>
+
+    <header>
+        <h1>Todo List</h1>
+    </header>
+    <table>
+        <table border="1">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody> <!-- Todo list will go here --> </tbody>
+    </table>
+    
+    <header>
+        <h1>Conversations</h1>
+    </header>
+    <table>
+        <table border="1">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody> <!-- Conversations will go here --> </tbody>
+    </table>
+
     </div>
+
     <footer>
         <p>Contact OSU Administration for more details</p>
     </footer>

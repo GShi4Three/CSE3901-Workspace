@@ -1,1 +1,2 @@
+# Ignoring the environmental variables which contain the user's access token
 .env
