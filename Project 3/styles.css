@@ -1,0 +1,80 @@
+body {
+    background-color: lightblue;
+}
+.box {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Add space below the table */
+    margin-bottom: 20px;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: lightblue;
+    /* Add white to the text for a contrast */
+    color: white;
+}
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    /* Add a light blue hover-like effect for the table rows */
+    background-color: #e0f7fa;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin-bottom: 10px;
+}
+ol {
+    list-style-type: decimal;
+    padding: 0;
+}
+footer {
+    text-align: center;
+    margin-top: 20px;
+    /* Match the footer's color to the page background */
+    background-color: lightblue;
+    /* Padding for the footer */
+    padding: 10px 0;
+    /* Add darker top border */
+    border-top: 2px solid #333;
+    /* Make the text dark gray */
+    color: #333;
+}
+
+h1 {
+    color: #333; /* Dark gray */
+}
+
+h2 {
+    /* Slightly lighter gray for the smaller headings */
+    color: #555;
+    /* Add space above the smaller headings */
+    margin-top: 20px;
+}
+
+::marker {
+    /* Bolden the lists */
+    font-weight: bold;
+    /* Make the bold color a dark gray */
+    color: #333;
+}
+
