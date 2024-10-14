@@ -1,1 +1,3 @@
 For Project 3, our team worked together to create different tables of information for a specific user based on data from the Canvas API. The data we chose to display includes their history of enrolled classes at OSU, along with relevant information such as the course ID, and code, as well as items on the user's todo list and messages that have been sent to the user.
+
+To properly run the program, create a .env file with your token retrieved from Canvas. Create a variable: CANVAS_TOKEN=your_token and then run the carmen_program.rb file. The program will generate an updated_display_page.html file with your user specific data.
