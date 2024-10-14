@@ -1,0 +1,1 @@
+The assigned work for Project 3 was for our team to work together to create a listing of all courses we've have taken at OSU, along with relevant information such as the course number, title, and semester of enrollment which is data gathered from the Canvas API.
