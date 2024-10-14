@@ -79,33 +79,44 @@ end
 
 # GUI created using TK library
 # Khaled Saleh
+
+# Initializes main application window, which sets the title of window to ruby calculator
 root = TkRoot.new { title "Ruby Calculator" }
+# Sets the window to 800 pixels wide and 200 pixels tall
 root.geometry("800x200")
 
+# Font definitions: label, button, and entry fields are all of size 24 points
 label_font = TkFont.new('size' => 24)
 button_font = TkFont.new('size' => 24)
 entry_font = TkFont.new('size' => 24)
 
+# Creates new label widget attached to the main window, which has text displayed in label, of the font specified above, 
+# positions label within the window, padx, and pady add padding around label, and side left aligns it with left side of window
 TkLabel.new(root) do
   text 'Enter expression:'
   font label_font
   pack { padx 15; pady 15; side 'left' }
 end
 
+# Creates entry widget for user input, which has set the entry field to accomodate 30 characters and positions the entry field in the same way as the label
 input = TkEntry.new(root) do
   font entry_font
   width 30
   pack { padx 15; pady 15; side 'left' }
 end
 
+# Creates a label for displaying result of evaluation
 result_label = TkLabel.new(root) do
   text 'Result:'
   font label_font
   pack { padx 15; pady 15; side 'left' }
 end
 
+# Initializes an instance of the ExpressionEvaluator class which is responsible for evaluating mathematical expressions
 evaluator = ExpressionEvaluator.new
 
+# Creates a button within main window, command proc defines what happens when button is clicked in which the text is received from the entry field and is evaluated by using the evaluator instance, and this is all enclosed within begin ... rescue .... block which is ruby's version of a try and catch block
+# result label is updated with the evaluated result
 TkButton.new(root) do
   text 'Evaluate'
   command proc {
@@ -117,7 +128,7 @@ TkButton.new(root) do
       result_label.text = "Error: #{e.message}"
     end
   }
-  pack { padx 15; pady 15; side 'left' }
+  pack { padx 15; pady 15; side 'left' } # positions the button
 end
 
-Tk.mainloop
+Tk.mainloop # Starts the Tk event loop, which keeps the application running and responsive to user actions like button clicks
