@@ -21,11 +21,11 @@ img {
     font-display:;
 }
 .headers h1 {
-    font-size: 18px; /* Sets a standard larger font size for all h1 elements */
+    font-size: 18px; 
 }
 
 .headers .home {
-    font-size: 30px; /* Sets an even larger font size specifically for the 'Home' h1 element */
+    font-size: 30px; 
 }
 
 
