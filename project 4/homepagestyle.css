@@ -1,0 +1,33 @@
+body {
+    background: linear-gradient(to right, red, grey);
+}
+img {
+    width: 150px;  
+    height: auto;  
+}
+.navbar {
+    display: flex;
+    flex-direction: row;     
+    align-items: center;     
+    justify-content: flex-end; 
+    padding: 10px 20px;      
+    border: 2px solid black; 
+    background-color: #f8f9fa; 
+}
+.paragraphs{
+    font-size: 20px;
+}
+.home{
+    font-display:;
+}
+.headers h1 {
+    font-size: 18px; /* Sets a standard larger font size for all h1 elements */
+}
+
+.headers .home {
+    font-size: 30px; /* Sets an even larger font size specifically for the 'Home' h1 element */
+}
+
+
+
+
