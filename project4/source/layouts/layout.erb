@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= current_page.data.title || "Shaileshh B Venkatakrishnan" %></title>
+  <link rel="stylesheet" href="<%= asset_path('stylesheets/styles.css') %>">
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>Shaileshh<br>Bojja<br>Venkatakrishnan</h2>
+      <nav>
+        <ul>
+          <li><a href="<%= url_for 'home_page.html' %>">Home</a></li>
+          <li><a href="<%= url_for 'research_page.html' %>">Research</a></li>
+          <li><a href="<%= url_for 'news_page.html' %>">News</a></li>
+          <li><a href="<%= url_for 'teaching_page.html' %>">Teaching</a></li>
+          <li><a href="<%= url_for 'students_page.html' %>">Students</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <main class="content">
+      <%= yield %>
+    </main>
+  </div>
+</body>
+</html>
