@@ -1,11 +1,10 @@
-/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Layout */
+
 .container {
     display: flex;
     min-height: 100vh;
@@ -13,16 +12,16 @@
 }
 
 .sidebar {
-    position: fixed;         /* Fixes the sidebar to the viewport */
-    top: 0;                  /* Aligns the sidebar with the top of the viewport */
-    left: 0;                 /* Aligns the sidebar with the left edge of the viewport */
-    width: 250px;            /* Set the width of the sidebar */
-    height: 100vh;           /* Makes the sidebar take up the full height of the viewport */
+    position: fixed;         
+    top: 0;         
+    left: 0;            
+    width: 250px;           
+    height: 100vh;          
     background-color: #2E2E2E;
     color: #ffffff;
     padding: 20px;
-    overflow-y: auto;        /* Allows the sidebar to scroll if content overflows */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for separation */
+    overflow-y: auto;       
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar h2 {
@@ -104,10 +103,9 @@
 }
 
 .sidebar nav ul li a.active {
-    color: #4BB4E6; /* Light blue color for the active page */
+    color: #4BB4E6; 
 }
 
-/* Hanging indent for publications */
 .content .publication {
     margin-left: 20px;
     text-indent: -20px;
@@ -121,7 +119,6 @@
     height: 200px;               
 }
 
-/* Styling for tables */
 .news-table {
     width: 100%;
     border-collapse: collapse;
@@ -142,7 +139,7 @@
 }
 
 .news-table td a {
-    color: #007bff; /* Link color */
+    color: #007bff; 
     text-decoration: none;
 }
 
