@@ -23,7 +23,7 @@ function convertToBinary(n) {
     const sum = data.reduce((acc, num) => acc + num, 0); // Calculate the sum of the numbers
     const elements = data.length; // Get the number of elements
     const meanValue = sum / elements; // Calculate the mean
-    console.log(`The mean of the set is ${meanValue}.`);
+    return meanValue;
   }
   
   // Find the maximum value in an array of numbers
@@ -34,7 +34,7 @@ function convertToBinary(n) {
         max = data[i];
       }
     }
-    console.log(`The largest value in the set is ${max}.`);
+    return max;
   }
   
   // Generate Fibonacci numbers up to a limit and save to a file
@@ -49,13 +49,12 @@ function convertToBinary(n) {
       [a, b] = [b, a + b]; // Update 'a' and 'b' for the next Fibonacci number
     }
     fs.writeFileSync(fileName, sequence.join('\n')); // Save the sequence to a file
-    console.log(`Fibonacci numbers up to ${limit} have been saved to ${fileName}.`);
   }
   
   // Convert Fahrenheit to Celsius
   function fahrenheitToCelsius(fahrenheit) {
     const celsius = ((fahrenheit - 32) * 5) / 9;
-    console.log(`The value ${fahrenheit} degrees Fahrenheit in Celsius is ${celsius.toFixed(2)} degrees Celsius.`);
+    return celsius.toFixed(2);
   }
   
   

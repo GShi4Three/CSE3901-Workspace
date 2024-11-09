@@ -84,32 +84,49 @@ function executeFunction(functionName) {
       case 'exponent':
         result = exponent(parseFloat(input1), parseInt(input2));
         break;
+      case 'generateEvens':
+        result = generateEvens(parseInt(input));
+        downloadResult('evens.txt', result);
+        break;
       case 'absolute':
         result = absolute(parseFloat(input));
+        break;
+      case 'generateSquares':
+        result = generateSquares(parseInt(input));
+        downloadResult('squares.txt', result);
         break;
       case 'factorial':
         result = factorial(parseInt(input));
         break;
       case 'percentage':
-        result = percentage(parseFloat(input), 100); // Example percentage of 100
+        result = percentage(parseFloat(input), parseInt(input2))
         break;
       case 'median':
-        result = median([1, 2, 3, 4, parseFloat(input)]); // Example array
+        result = median([1, 2, 3, 4, parseFloat(input)]);
+        break;
+      case 'generatePrimes':
+        result = generatePrimes(parseInt(input));
+        downloadResult('primes.txt', result);
         break;
       case 'isPrime':
         result = isPrime(parseInt(input)) ? 'Prime' : 'Not Prime';
         break;
       case 'minimum':
-        result = minimum([1, 2, 3, 4, parseFloat(input)]); // Example array
+        result = minimum([1, 2, 3, 4, parseFloat(input)]);
+        break;
+      case 'generateOdds':
+        result = generateOdds(parseInt(input));
+        downloadResult('odds.txt', result);
         break;
       case 'mode':
-        result = mode([1, 2, 3, 3, parseFloat(input)]); // Example array
-        break;
+        result = mode([1, 2, 3, 3, parseFloat(input)]);
       case 'mean':
-        result = mean([1, 2, 3, parseFloat(input)]); // Example array
+        result = mean([1, 2, 3, parseFloat(input)]);
         break;
-      case 'fibonacci':
-        result = fibonacci(parseInt(input)); // Generates Fibonacci sequence
+      case 'maximum':
+        result = max([1, 2, 3, 3, parseFloat(input)]);
+      case 'generateFibonaccis':
+        result = generateFibonaccis(parseInt(input));
         downloadResult('fibonacci.txt', result);
         break;
       case 'fahrenheitToCelsius':
