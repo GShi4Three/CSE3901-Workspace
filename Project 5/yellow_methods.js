@@ -14,7 +14,6 @@ function cubeRoot(n) {
   // Calculate factorial of a number
   function factorial(n) {
     if (n === 0) {
-      console.log("Cannot find the factorial of zero.");
       return;
     }
     let factorial = 1;

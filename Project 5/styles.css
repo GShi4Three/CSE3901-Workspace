@@ -34,7 +34,7 @@ body {
 .function-buttons {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(9, 60px); /* Make the height match the standard buttons */
+  grid-template-rows: repeat(9, 60px);
   gap: 10px;
 }
 
@@ -70,7 +70,6 @@ body {
   background-color: #3a7bc1;
 }
 
-/* Styling for function buttons */
 .button.function {
   background-color: #888;
 }

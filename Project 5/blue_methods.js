@@ -3,7 +3,7 @@
 
 // Convert a decimal base number to binary
 function convertToBinary(n) {
-    return n.toString(2);
+  return n.toString(2);
 }
   
   // Convert a decimal number to an octal number
