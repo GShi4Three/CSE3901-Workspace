@@ -81,6 +81,12 @@ function executeFunction(functionName) {
       case 'convertToBinary':
         result = convertToBinary(parseFloat(input)); 
         break;
+      case 'convertToOctal':
+        result = convertToOctal(parseFloat(input)); 
+        break;
+      case 'convertToHex':
+        result = convertToHex(parseFloat(input)); 
+        break;
       case 'exponent':
         result = exponent(parseFloat(input1), parseInt(input2));
         break;
