@@ -1,52 +1,80 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #1c1c1c;
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
-  .calculator {
-    display: grid;
-    grid-template-columns: repeat(4, 80px);
-    grid-template-rows: minmax(120px, auto) repeat(5, 80px);
-    gap: 10px;
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  .display {
-    grid-column: span 4;
-    background-color: #000;
-    color: white;
-    font-size: 2em;
-    text-align: right;
-    padding: 20px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    background-color: #555;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-    user-select: none;
-    transition: background-color 0.2s;
-  }
-  .button:active {
-    background-color: #666;
-  }
-  .button.equal {
-    background-color: #4a90e2;
-  }
-  .button.equal:active {
-    background-color: #3a7bc1;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #1c1c1c;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: minmax(120px, auto) 1fr;
+  gap: 10px;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.display {
+  grid-column: span 2;
+  background-color: #000;
+  color: white;
+  font-size: 2em;
+  text-align: right;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.function-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(9, 60px); /* Make the height match the standard buttons */
+  gap: 10px;
+}
+
+.standard-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 60px);
+  gap: 10px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  background-color: #555;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.button:active {
+  background-color: #666;
+}
+
+.button.equal {
+  background-color: #4a90e2;
+}
+
+.button.equal:active {
+  background-color: #3a7bc1;
+}
+
+/* Styling for function buttons */
+.button.function {
+  background-color: #888;
+}
+
+.button.function:active {
+  background-color: #999;
+}

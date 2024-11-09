@@ -93,7 +93,7 @@ function minimum(data){
 
 }
 
-const fs= require('fs');
+const fs = require('fs');
 
 function generate_odd_values(file_name, start_list, end_list){
 
@@ -117,74 +117,15 @@ function generate_odd_values(file_name, start_list, end_list){
 }
 
 
-function mode(data){
+// Find the mode of an array
+function mode(data) {
+if (data.length === 0) return null; // Edge case: empty array
 
-    // Method assumes that data variable belongs to an array 
+const hashMap = {}; // Initialize an empty object to count occurrences
+data.forEach((value) => {
+    hashMap[value] = (hashMap[value] || 0) + 1; // Count occurrences
+});
 
-    // Edge case - if no elements are in input array
-    if (data.empty){
-        return null
-    }
-
-
-    // Initialize an empty hash map
-    let hash_map = {};
-
-    // Get occurrence of values within input array
-    for (const value of data){
-        // Check if value already exists in hash_map; if not, initialize to 0, then increment
-        hash_map[value] = (hash_map[value] || 0) + 1;
-    }
-
-    // Find the mode in hash map
-    let highest_freq = 0;
-    let key_highest_freq = null;
-
-    for(const key in hash_map){
-        value = hash_map.[key];
-
-        if (value > highest_freq){
-            highest_freq = value;
-            key_highest_freq = key;
-        }
-    }
-
-    // return mode
-    return key_highest_freq;
-
+const highestOccurringVal = Object.entries(hashMap).reduce((a, b) => (a[1] > b[1] ? a : b));
+return Number(highestOccurringVal[0]); // Return the mode as a number
 }
-
-
-// Testing validity of methods, will delete later
-function main(){
-
-    data = [1,2,2,2,3,4];
-
-    val = mode(data);
-
-    min = minimum(data);
-
-    num = is_prime(49);
-
-    sin_val = sin(60);
-
-    cos_val = cos(60);
-
-    tan_val = tan(60);
-
-    console.log("Sin function: ${sin_val}");
-
-    console.log("Cos function: ${cos_val}");
-
-    console.log("Tan function: ${tan_val}");
-
-    console.log("Is it prime? ${num}");
-
-    console.log("Min Value: ${min}");
-
-    generate_odd_values("odd_numbers.txt", 1, 20);
-
-    console.log("Mode Value: ${val}");
-}
-
-main();
