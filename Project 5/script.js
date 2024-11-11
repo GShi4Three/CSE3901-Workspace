@@ -43,6 +43,10 @@ document.addEventListener('keydown', (event) => {
     appendCharacter('%');
   } else if (key === '.') {
     appendCharacter('.');
+  } else if (key === '^') {
+    appendCharacter('^');
+  } else if (key === '%') {
+    appendCharacter('%');
   } else if (key === 'Enter') {
     calculateResult();
   } else if (key === 'Backspace') {
@@ -105,7 +109,7 @@ function executeFunction(functionName) {
         result = factorial(parseInt(input));
         break;
       case 'percentage':
-        result = percentage(parseFloat(input), parseInt(input2))
+        result = percentage(parseFloat(input), 100)
         break;
       case 'median':
         result = median([1, 2, 3, 4, parseFloat(input)]);

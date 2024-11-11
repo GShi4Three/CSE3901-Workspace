@@ -59,15 +59,22 @@ function cubeRoot(n) {
     return true;
   }
   
-  function primeNumbers(limit, fileName) {
-    const primes = [];
-    for (let counter = 2; counter <= limit; counter++) {
-      if (isPrime(counter)) {
-        primes.push(counter);
-      }
+  function generatePrimes(n) {
+    let primes = [];
+    for (let i = 2; i < n; i++) {
+        if (isPrime(i)) {
+            primes.push(i);
+        }
     }
-    fs.writeFileSync(fileName, primes.join('\n')); // Save prime numbers to a file
-    console.log(`Prime numbers less than ${limit} have been saved to ${fileName}.`);
-  }
-  
-  
+    return primes;
+}
+
+// Helper function to download prime numbers to a file
+function downloadPrimes(n) {
+    const primes = generatePrimesLessThan(n);
+    const blob = new Blob([primes.join('\n')], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'primes_less_than_' + n + '.txt';
+    link.click();
+}

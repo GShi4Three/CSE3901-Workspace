@@ -40,7 +40,7 @@ function maximum(data) {
 // Generate Fibonacci numbers up to a limit and save to a file
 const fs = require('fs'); // Node.js file system module for file operations
 
-function fibonacciNumbers(limit, fileName) {
+function generateFibonaccis(limit, fileName) {
   const sequence = []; // Initialize an empty array
   let a = 0;
   let b = 1;
@@ -51,7 +51,6 @@ function fibonacciNumbers(limit, fileName) {
   fs.writeFileSync(fileName, sequence.join('\n')); // Save the sequence to a file
 }
 
-// Convert Fahrenheit to Celsius
 function fahrenheitToCelsius(fahrenheit) {
   const celsius = ((fahrenheit - 32) * 5) / 9;
   return celsius.toFixed(2);

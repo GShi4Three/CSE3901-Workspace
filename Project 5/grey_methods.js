@@ -23,7 +23,7 @@ function absolute(a){
         return a;
     }
 }
-function generateEvenNumbers(start, end) {
+function generateEvens(start, end) {
     let evenNumbers = [];
     for (let i = start; i <= end; i++) {
         if (i % 2 === 0) {
@@ -42,7 +42,7 @@ function downloadEvenNumbers(start, end) {
     link.click();
 }
 
-function generateSquareNumbers(start, end) {
+function generateSquares(start, end) {
     let squares = [];
     for (let i = start; i <= end; i++) {
         squares.push(i * i);

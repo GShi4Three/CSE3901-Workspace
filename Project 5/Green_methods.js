@@ -39,33 +39,15 @@ function tan(n){
 
 // Category 2 Methods - 
 
-function is_prime(n){
-
-
-    // Edge Case: 0 and 1 are prime numbers
-    if (n <= 1){
+function isPrime(n) {
+    if (n <= 1) return false;
+    for (let counter = 2; counter < n; counter++) {
+      if (n % counter === 0) {
         return false;
+      }
     }
-
-    // Edge Case: 2 is a prime number
-    if (n == 2){
-        return true;
-    }
-
-    
-    // Iterate from 2 up to square root of n
-    for(let i = 2; i < Math.sqrt(n);i++){
-        // if n is divisible by that number, it's not prime
-        if (n % i == 0){
-            return false
-        }
-        
-    }
-    
-    // If made it to this point in execution, then that means n was only divisible by 1 and itself, meaning it is a prime number
-    return true
-
-}
+    return true;
+  }
 
 function minimum(data){
 
@@ -95,25 +77,24 @@ function minimum(data){
 
 const fs = require('fs');
 
-function generate_odd_values(file_name, start_list, end_list){
-
-    // Open file for writing
-    const file = fs.createWriteStream(file_name);
-
-        // Iterate through the range: (start, end) inclusive
-        while(start_list <= end_list){
-            // If value is odd, then write that value to the file
-            if (start_list % 2 == 1){
-                file.write(start_list + "\n");
-            }
-            start_list+=1
+function generateOdds(start, end) {
+    let oddNumbers = [];
+    for (let i = start; i <= end; i++) {
+        if (i % 2 !== 0) {
+            oddNumbers.push(i);
         }
+    }
+    return oddNumbers;
+}
 
-        file.end();
-
-    console.log(`Odd values between ${start_list} and ${end_list} have been saved to ${file_name}.`)
-
-
+// Helper function to download odd numbers to a file
+function downloadOdds(start, end) {
+    const oddNumbers = generateOddNumbers(start, end);
+    const blob = new Blob([oddNumbers.join('\n')], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'odd_numbers.txt';
+    link.click();
 }
 
 
