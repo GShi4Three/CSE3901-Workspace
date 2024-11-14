@@ -2,11 +2,6 @@
  Khaled Saleh
  */
 function sin(n){
-
-    // Assuming user-supplied parameter (n) is in degrees
-
-    // Converting from degrees to radians to be passed into built in function
-
     radians_val = n * (Math.PI / 180);
 
     return Math.sin(radians_val);
@@ -71,8 +66,7 @@ function minimum(data){
     }
 
     // return min_val
-    return min_val
-
+    return min_val;
 }
 
 const fs = require('fs');
