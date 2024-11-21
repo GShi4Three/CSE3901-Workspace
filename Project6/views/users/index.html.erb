@@ -1,0 +1,43 @@
+<% provide(:title, 'User Index Page') %>
+
+<% @users.each do |user| %>
+<p>
+    <strong>ID:</strong> <% user.id %><br>
+    <strong>Name:</strong> <%= user.name %><br>
+    <strong>Email:</strong> <%= user.email %><br>
+    <strong>Creadted At:</strong> <%= user.created_at %><br>
+    <strong>Updated At:</strong> <%= user.updated_at %><br>
+    <%= link_to 'Edit', edit_user_path(user)%>
+
+    <%= form_with model: user, method: :delete do |form| %>
+    <%= form submit 'Delete' %>
+    <% end %>
+
+    <strong>---------------------------</strong>
+
+</p>
+<% end %>
+
+<table class="mytable">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>#</th>
+        <th>#</th>
+    </tr>
+    <%= @users.each do |user|%>
+    <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.updated_at %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %></td>
+    </tr>
+    <% end %>
+</table>
