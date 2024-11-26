@@ -11,4 +11,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "login#index"
+
+  get '/presentations/ta', to: 'presentations#index_ta' # Route for the TA presentations page
+
+  get '/presentations/student', to: 'presentations#index_student' # Route for the student presentations page
+
+  get '/evalutions/ta', to: 'evaluations#index_ta' # Route for the TA evaluations page
+
+  get '/evalutions/student', to: 'evaluations#index_student' # Route for the student evaluations page
+
 end
