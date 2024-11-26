@@ -1,8 +1,9 @@
+<head>
+    <%= stylesheet_link_tag :presentations, "data-turbo-track": "reload" %>
+</head>
 <div class="presentations-container">
-  <h1>Presentations</h1>
-
   <div class="new-presentation">
-    <h2>Create a New Presentation</h2>
+    <h1>Create a New Presentation</h1>
     <div class="presentation-options">
       <div class="option blank-presentation">
         <div class="add-icon">+</div>
@@ -12,11 +13,11 @@
   </div>
 
   <div class="recent-presentations">
-    <h2>Recent Presentations</h2>
+    <h1>Presentations</h1>
     <div class="presentation-cards">
       <% 6.times do |i| %>
         <div class="card">
-          <img src="https://via.placeholder.com/200x100" alt="Presentation Image">
+          <img src="https://placehold.co/400x300" alt="Presentation Image">
           <p class="card-title">Presentation Title <%= i + 1 %></p>
           <p class="card-score">Score: <strong><%= rand(5..10) %>/10</strong></p>
           <p class="card-presenters"> By: John Doe, Jane Smith </p>
