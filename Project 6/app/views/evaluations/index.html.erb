@@ -1,0 +1,47 @@
+<head>
+    <%= stylesheet_link_tag :evaluations, "data-turbo-track": "reload" %>
+</head>
+
+<div class="evaluation-container">
+  <!-- Left Section: Presentation Details -->
+  <div class="presentation-details">
+    <img src="https://placehold.co/800x600" alt="Presentation Image" class="presentation-image">
+    <h1 class="presentation-title">Presentation Title</h1>
+    <p class="presentation-presenters">
+      <strong>Presenters:</strong> John Doe, Jane Smith
+    </p>
+  </div>
+
+  <!-- Right Section: Evaluation Form -->
+  <div class="evaluation-form">
+    <h2>Evaluation</h2>
+    <form>
+      <!-- Score Inputs -->
+      <div class="form-group">
+        <label for="content">Content (1-10)</label>
+        <input type="number" id="content" name="content" min="1" max="10" required>
+      </div>
+      <div class="form-group">
+        <label for="organization">Organization (1-10)</label>
+        <input type="number" id="organization" name="organization" min="1" max="10" required>
+      </div>
+      <div class="form-group">
+        <label for="time-pacing">Time & Pacing (1-10)</label>
+        <input type="number" id="time-pacing" name="time-pacing" min="1" max="10" required>
+      </div>
+      <div class="form-group">
+        <label for="professionalism">Professionalism (1-10)</label>
+        <input type="number" id="professionalism" name="professionalism" min="1" max="10" required>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments" rows="5" placeholder="Leave your comments here..." required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-button">Submit Evaluation</button>
+    </form>
+  </div>
+</div>

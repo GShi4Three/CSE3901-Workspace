@@ -1,0 +1,91 @@
+/* Login Page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .login-header {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .login-header h1 {
+    color: #e53935;
+    margin: 0;
+  }
+  
+  .login-form .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .login-form label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .login-form input[type="text"],
+  .login-form input[type="password"] {
+    width: 100%; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  .login-button {
+    padding: 10px;
+    background-color: #e53935;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .login-button:hover {
+    background-color: #b71c1c;
+  }
+  
+  .forgot-password,
+  .create-account {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+    text-decoration: none;
+  }
+  
+  .create-account {
+    
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .forgot-password:hover,
+  .create-account:hover {
+    color: #e53935;
+  }
+  
+ 

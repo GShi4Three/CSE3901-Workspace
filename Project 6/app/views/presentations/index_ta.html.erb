@@ -1,0 +1,28 @@
+<head>
+    <%= stylesheet_link_tag :presentations, "data-turbo-track": "reload" %>
+</head>
+<div class="presentations-container">
+  <div class="new-presentation">
+    <h1>Create a New Presentation</h1>
+    <div class="presentation-options">
+      <div class="option blank-presentation">
+        <div class="add-icon">+</div>
+        <p>Blank Presentation</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="recent-presentations">
+    <h1>Presentations</h1>
+    <div class="presentation-cards">
+      <% 6.times do |i| %>
+        <div class="card">
+          <img src="https://placehold.co/400x300" alt="Presentation Image">
+          <p class="card-title">Presentation Title <%= i + 1 %></p>
+          <p class="card-score">Score: <strong><%= rand(5..10) %>/10</strong></p>
+          <p class="card-presenters"> By: John Doe, Jane Smith </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

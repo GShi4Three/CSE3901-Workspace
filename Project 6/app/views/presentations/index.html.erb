@@ -1,0 +1,15 @@
+<head>
+    <%= stylesheet_link_tag :presentations, "data-turbo-track": "reload" %>
+</head>
+<div class="presentations-container">
+  <h1>Presentations</h1>
+    <div class="presentation-cards">
+      <% 6.times do |i| %>
+        <div class="card">
+          <img src="https://placehold.co/400x300" alt="Presentation Image">
+          <p class="card-title">Presentation Title <%= i + 1 %></p>
+          <p class="card-presenters"> By: John Doe, Jane Smith </p>
+        </div>
+      <% end %>
+  </div>
+</div>

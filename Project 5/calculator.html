@@ -8,28 +8,65 @@
 </head>
 <body>
   <div class="calculator">
+
     <div class="display" id="display">0</div>
-    <div class="button" onclick="appendCharacter('(')">(</div>
-    <div class="button" onclick="appendCharacter(')')">)</div>
-    <div class="button" onclick="appendCharacter('%')">%</div>
-    <div class="button" onclick="clearDisplay()">AC</div>
-    <div class="button" onclick="appendCharacter('7')">7</div>
-    <div class="button" onclick="appendCharacter('8')">8</div>
-    <div class="button" onclick="appendCharacter('9')">9</div>
-    <div class="button" onclick="appendCharacter('/')">÷</div>
-    <div class="button" onclick="appendCharacter('4')">4</div>
-    <div class="button" onclick="appendCharacter('5')">5</div>
-    <div class="button" onclick="appendCharacter('6')">6</div>
-    <div class="button" onclick="appendCharacter('*')">×</div>
-    <div class="button" onclick="appendCharacter('1')">1</div>
-    <div class="button" onclick="appendCharacter('2')">2</div>
-    <div class="button" onclick="appendCharacter('3')">3</div>
-    <div class="button" onclick="appendCharacter('-')">−</div>
-    <div class="button" onclick="appendCharacter('0')">0</div>
-    <div class="button" onclick="appendCharacter('.')">.</div>
-    <div class="button equal" onclick="calculateResult()">=</div>
-    <div class="button" onclick="appendCharacter('+')">+</div>
+
+    <div class="function-buttons">
+      <div class="button function" onclick="executeFunction('squareRoot')">√</div>
+      <div class="button function" onclick="executeFunction('cubeRoot')">∛</div>
+      <div class="button function" onclick="executeFunction('sin')">sin(x)</div>
+      <div class="button function" onclick="executeFunction('cos')">cos(x)</div>
+      <div class="button function" onclick="executeFunction('tan')">tan(x)</div>
+      <div class="button function" onclick="executeFunction('logarithm')">logb(a)</div>
+      <div class="button function" onclick="appendCharacter('^')">a^b</div>
+      <div class="button function" onclick="executeFunction('absolute')">|x|</div>
+      <div class="button function" onclick="executeFunction('factorial')">x!</div>
+      <div class="button function" onclick="appendCharacter('%')">a%b</div>
+      <div class="button function" onclick="executeFunction('isPrime')">IsPrime?</div>
+      <div class="button function" onclick="executeFunction('fahrenheitToCelsius')">°F→°C</div>
+      <div class="button function" onclick="executeFunction('convertToBinary')">Dec→Bin</div>
+      <div class="button function" onclick="executeFunction('convertToOctal')">Dec→Oct</div>
+      <div class="button function" onclick="executeFunction('convertToHex')">Dec→Hex</div>      
+      <div class="button function" onclick="executeFunction('mean')">Mean</div>
+      <div class="button function" onclick="executeFunction('mode')">Mode</div>
+      <div class="button function" onclick="executeFunction('median')">Median</div>
+      <div class="button function" onclick="executeFunction('minimum')">Min</div>
+      <div class="button function" onclick="executeFunction('maximum')">Max</div>
+      <div class="button function" onclick="executeFunction('generateEvens')">Evens</div>
+      <div class="button function" onclick="executeFunction('generateOdds')">Odds</div>
+      <div class="button function" onclick="executeFunction('generateSquares')">Squares</div>
+      <div class="button function" onclick="executeFunction('generatePrimes')">Primes</div>
+      <div class="button function" onclick="executeFunction('generateFibonaccis')">Fibonaccis</div>
+    </div>
+
+    <div class="standard-buttons">
+      <div class="button" onclick="appendCharacter('(')">(</div>
+      <div class="button" onclick="appendCharacter(')')">)</div>
+      <div class="button" onclick="appendCharacter('%')">%</div>
+      <div class="button" onclick="clearDisplay()">AC</div>
+      <div class="button" onclick="appendCharacter('7')">7</div>
+      <div class="button" onclick="appendCharacter('8')">8</div>
+      <div class="button" onclick="appendCharacter('9')">9</div>
+      <div class="button" onclick="appendCharacter('/')">÷</div>
+      <div class="button" onclick="appendCharacter('4')">4</div>
+      <div class="button" onclick="appendCharacter('5')">5</div>
+      <div class="button" onclick="appendCharacter('6')">6</div>
+      <div class="button" onclick="appendCharacter('*')">×</div>
+      <div class="button" onclick="appendCharacter('1')">1</div>
+      <div class="button" onclick="appendCharacter('2')">2</div>
+      <div class="button" onclick="appendCharacter('3')">3</div>
+      <div class="button" onclick="appendCharacter('-')">−</div>
+      <div class="button" onclick="appendCharacter('0')">0</div>
+      <div class="button" onclick="appendCharacter('.')">.</div>
+      <div class="button equal" onclick="calculateResult()">=</div>
+      <div class="button" onclick="appendCharacter('+')">+</div>
   </div>
+  
   <script src="script.js"></script>
+  <script src="grey_methods.js"></script>
+  <script src="yellow_methods.js"></script>
+  <script src="green_methods.js"></script>
+  <script src="blue_methods.js"></script>
+
 </body>
 </html>
