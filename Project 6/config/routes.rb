@@ -1,25 +1,27 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Health check route for monitoring
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  # Define root path route
+  root "login#index" # The root route for login
 
-  # Defines the root path route ("/")
-  root "login#index"
+  # Authentication routes
+  get '/login', to: 'sessions#new', as: :login    # Login page
+  post '/login', to: 'sessions#create'            # Login action
+  delete '/logout', to: 'sessions#destroy', as: :logout # Logout action
 
-  get '/create_account', to: 'login#index_create' # Route for the TA presentations page
+  # Account creation (Signup) - optional, depending on your needs
+  get '/create_account', to: 'users#new', as: :signup
+  post '/create_account', to: 'users#create'
 
-  get '/presentations/ta', to: 'presentations#index_ta' # Route for the TA presentations page
+  # Role-based presentation routes
+  get '/presentations', to: 'presentations#index', as: :student_presentations  # Student presentations
+  get '/presentations/ta', to: 'presentations#index_ta', as: :ta_presentations  # TA presentations
 
-  get '/presentations', to: 'presentations#index' # Route for the student presentations page
+  # Role-based evaluation routes
+  get '/evaluations', to: 'evaluations#index', as: :student_evaluations  # Student evaluations
+  get '/evaluations/ta', to: 'evaluations#index_ta', as: :ta_evaluations  # TA evaluations
 
-  get '/evaluations', to: 'evaluations#index' # Route for the student evaluations page
-
-  get '/evaluations/ta', to: 'evaluations#index_ta' # Route for the student evaluations page
-
+  # Add a dashboard for role-specific redirection
+  get '/dashboard', to: 'dashboard#index', as: :dashboard
 end
