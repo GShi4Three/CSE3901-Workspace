@@ -5,5 +5,6 @@ class Courses < ActiveRecord::Migration[8.0]
       t.string :name, null: false
       t.string :semester, null: false
       t.references :instructor, null: false, foreign_key: {to_table :users}
+    end
   end
 end
