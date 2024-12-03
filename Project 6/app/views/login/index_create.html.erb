@@ -16,6 +16,7 @@
       <% flash.discard(:alert) %> 
     </div>
   <% end %>
+  
     <div class="account-setup-form">
 
     <%= form_with model: User.new, url: '/api/v1/users', method: :post, local: true do |f| %>

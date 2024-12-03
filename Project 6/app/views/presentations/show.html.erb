@@ -26,6 +26,19 @@
     </p>
   </div>
 
+  <% if current_user.role == 'ta' || @presentation.users.include?(current_user) %>
+  <!-- Right: Average Scores -->
+    <div class="average-scores">
+      <h2>Average Scores</h2>
+      <div class="score">
+        <p><strong>Content:</strong> <%= @average_content_score %>/10</p>
+        <p><strong>Organization:</strong> <%= @average_organization_score %>/10</p>
+        <p><strong>Time & Pacing:</strong> <%= @average_time_pacing_score %>/10</p>
+        <p><strong>Professionalism:</strong> <%= @average_professionalism_score %>/10</p>
+        <h2>Total Score: <%= @total_average_score %>/10</h2>
+      </div>
+    </div>
+    <% else %>
   <!-- Right Section: Evaluation Form -->
   <div class="evaluation-form">
     <h2>Evaluation</h2>
@@ -58,4 +71,23 @@
       <%= f.submit 'Submit Evaluation', class: 'submit-button' %>
     <% end %>
   </div>
+  <% end %>
+
+  <% if current_user.role == 'ta' || @presentation.users.include?(current_user) %>
+
+  <div class="student-evaluations">
+    <h2>Student Evaluations</h2>
+    <% @evaluations.each do |evaluation| %>
+      <div class="student-card">
+        <p><strong>Student Name:</strong> <%= evaluation.user.name %></p>
+        <p><strong>Content:</strong> <%= evaluation.content_score %>/10</p>
+        <p><strong>Organization:</strong> <%= evaluation.organization_score %>/10</p>
+        <p><strong>Time & Pacing:</strong> <%= evaluation.time_pacing_score %>/10</p>
+        <p><strong>Professionalism:</strong> <%= evaluation.professionalism_score %>/10</p>
+        <p><strong>Comments:</strong> <%= evaluation.comments %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <% end %>
 </div>

@@ -1,14 +1,9 @@
 class PresentationsController < ApplicationController
   before_action :authenticate_user
-  before_action :authorize_ta
 
   def index
     @presentations = Presentation.includes(:users).all
   end
-
-  def index_ta
-    @presentations = Presentation.includes(:users).all
-  end 
   
   def new
     @presentation = Presentation.new
@@ -17,7 +12,19 @@ class PresentationsController < ApplicationController
 
   def show
     @presentation = Presentation.find(params[:id])
+    @evaluations = @presentation.evaluations.includes(:user) # Fetch evaluations with associated users
   
+    @average_content_score = @evaluations.average(:content_score).to_f.round(2)
+    @average_organization_score = @evaluations.average(:organization_score).to_f.round(2)
+    @average_time_pacing_score = @evaluations.average(:time_pacing_score).to_f.round(2)
+    @average_professionalism_score = @evaluations.average(:professionalism_score).to_f.round(2)
+    @total_average_score = (
+      @average_content_score + 
+      @average_organization_score + 
+      @average_time_pacing_score + 
+      @average_professionalism_score
+    ) / 4
+
     # Check if the user has already submitted an evaluation
     existing_evaluation = @presentation.evaluations.find_by(user_id: current_user.id)
     if existing_evaluation
@@ -34,7 +41,7 @@ class PresentationsController < ApplicationController
 
     @presentation = Presentation.new(presentation_params)
     if @presentation.save
-      redirect_to presentations_ta_path, notice: "Presentation created successfully!"
+      redirect_to presentations_path, notice: "Presentation created successfully!"
     else
       flash[:alert] = "Failed to create presentation: #{@presentation.errors.full_messages.join(', ')}"
       render :new, status: :unprocessable_entity
@@ -44,9 +51,9 @@ class PresentationsController < ApplicationController
   def destroy
     @presentation = Presentation.find(params[:id])
     if @presentation.destroy
-      redirect_to presentations_ta_path, notice: 'Presentation deleted successfully.'
+      redirect_to presentations_path, notice: 'Presentation deleted successfully.'
     else
-      redirect_to presentations_ta_path, alert: 'Failed to delete presentation.'
+      redirect_to presentations_path, alert: 'Failed to delete presentation.'
     end
   end
   
@@ -58,12 +65,6 @@ class PresentationsController < ApplicationController
 
   def authenticate_user
     redirect_to '/' unless session[:user_id]
-  end
-
-  def authorize_ta
-    if current_user&.role != 'ta' && request.path == presentations_ta_path
-      redirect_to presentations_path, alert: 'Access denied! Only TAs can access this page.'
-    end
   end
 
 end

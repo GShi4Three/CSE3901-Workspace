@@ -17,13 +17,20 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  resources :presentations, only: [:index, :new, :create, :destroy, :show]
+  resources :presentations, only: [:index, :new, :create, :destroy]
 
   resources :evaluations, only: [:show]
 
   resources :presentations, only: [:index, :show] do
     resources :evaluations, only: [:create]
   end
+
+  resources :presentations, only: [:index, :show] do
+    member do
+      get 'ta', to: 'presentations#ta_view'
+    end
+  end
+  
   
   # Defines the root path route ("/")
   root "login#index"
@@ -31,8 +38,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/create_account', to: 'login#index_create' # Route for the TA presentations page
-
-  get '/presentations/ta', to: 'presentations#index_ta' # Route for the TA presentations page
 
   get '/presentations/new', to: 'presentations#new' # Route for the TA presentations page
 

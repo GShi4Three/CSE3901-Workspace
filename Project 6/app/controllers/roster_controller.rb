@@ -1,6 +1,5 @@
 class RosterController < ApplicationController
   before_action :authenticate_user
-  before_action :authorize_ta, only: [:index, :update_role, :destroy]
 
   # Roster page for TAs
   def index
@@ -33,9 +32,4 @@ class RosterController < ApplicationController
     redirect_to '/' unless session[:user_id]
   end
 
-  def authorize_ta
-    if current_user&.role != 'ta' && request.path == roster_path
-      redirect_to presentations_path, alert: 'Access denied! Only TAs can access this page.'
-    end
-  end
 end

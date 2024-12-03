@@ -5,11 +5,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       # Successful login
       session[:user_id] = user.id
-      if user.role == 'student'
-        redirect_to '/presentations'
-      elsif user.role == 'ta'
-        redirect_to '/presentations/ta'
-      end
+      redirect_to '/presentations'
     else
       # Failed login
       flash[:alert] = 'Invalid email or password. Please try again.'

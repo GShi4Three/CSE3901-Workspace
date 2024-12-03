@@ -1,6 +1,5 @@
 class EvaluationsController < ApplicationController
   before_action :authenticate_user
-  before_action :authorize_ta
 
   def create
     @presentation = Presentation.find(params[:presentation_id])
@@ -38,9 +37,4 @@ class EvaluationsController < ApplicationController
     redirect_to '/' unless session[:user_id]
   end
 
-  def authorize_ta
-    if current_user&.role != 'ta' && request.path == evaluations_ta_path
-      redirect_to evaluations_path, alert: 'Access denied! Only TAs can access this page.'
-    end
-  end
 end

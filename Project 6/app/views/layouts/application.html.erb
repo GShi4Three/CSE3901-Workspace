@@ -28,12 +28,8 @@
      <header>
   <div class="header-container">
     <% if current_user %> <!-- Ensure there's a logged-in user -->
-      <% if current_user.role == 'ta' %> <!-- Check if the user is a TA -->
-        <%= link_to 'Roster', roster_path, class: 'btn-roster' %>
-        <%= link_to 'Presentations', presentations_ta_path, class:'btn-presentations' %>
-      <% elsif current_user.role == 'student' %>
-        <%= link_to 'Presentations', presentations_path, class:'btn-presentations' %>
-      <% end %>
+      <%= link_to 'Roster', roster_path, class: 'btn-roster' %>
+      <%= link_to 'Presentations', presentations_path, class:'btn-presentations' %>
       <%= link_to 'Sign Out', logout_path, method: :delete, class: 'btn-signout', data: { confirm: 'Are you sure you want to sign out?' } %>
     <% end %>
   </div>
