@@ -30,6 +30,7 @@
   }
   
   .account-setup-form input[type="text"],
+  .account-setup-form input[type="email"],
   .account-setup-form input[type="password"] {
     width: 100%; 
     padding: 10px; 

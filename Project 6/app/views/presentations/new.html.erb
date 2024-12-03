@@ -1,0 +1,22 @@
+<h1>Create a New Presentation</h1>
+
+<%= form_with model: @presentation, url: presentations_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title, "Presentation Title" %>
+    <%= f.text_field :title, placeholder: "Enter the presentation title", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_ids, "Select Presenters" %>
+    <%= f.collection_check_boxes :user_ids, @users, :id, :name do |cb| %>
+      <div class="checkbox">
+        <%= cb.check_box %>
+        <%= cb.label %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= f.submit "Create Presentation", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to "Back to Presentations", presentations_ta_path, class: "btn btn-secondary" %>

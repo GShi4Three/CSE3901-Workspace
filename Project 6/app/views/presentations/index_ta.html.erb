@@ -15,14 +15,13 @@
   <div class="recent-presentations">
     <h1>Presentations</h1>
     <div class="presentation-cards">
-      <% 6.times do |i| %>
+      <% @presentations.each do |presentation| %>
         <div class="card">
-          <img src="https://placehold.co/400x300" alt="Presentation Image">
-          <p class="card-title">Presentation Title <%= i + 1 %></p>
-          <p class="card-score">Score: <strong><%= rand(5..10) %>/10</strong></p>
-          <p class="card-presenters"> By: John Doe, Jane Smith </p>
+          <img src="<%= presentation.image || 'https://placehold.co/400x300' %>" alt="Presentation Image">
+          <p class="card-title"><%= presentation.name %></p>
+          <p class="card-score">Score: <strong><%= presentation.score || 'N/A' %></strong></p>
+          <p class="card-presenters">By: <%= presentation.users.map(&:name).join(', ') %></p>
         </div>
       <% end %>
     </div>
-  </div>
 </div>

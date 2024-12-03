@@ -5,23 +5,32 @@
 <div class="account-setup-container">
   <h1 class="account-setup-title">Create an Account</h1>
 
-  <form class="account-setup-form">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" id="email" name="email" placeholder="Enter your email" required>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
     </div>
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" id="username" name="username" placeholder="Choose a username" required>
+  <% elsif flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
     </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
-    </div>
-    <div class="form-group">
-      <label for="confirm-password">Confirm Password</label>
-      <input type="password" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required>
-    </div>
-    <button type="submit" class="account-setup-button">Create Account</button>
-  </form>
+  <% end %>
+    <div class="account-setup-form">
+
+    <%= form_with model: User.new, url: '/api/v1/users', method: :post, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :name, 'Name' %>
+        <%= f.text_field :name, placeholder: 'Enter your name', required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, 'Email' %>
+        <%= f.email_field :email, placeholder: 'Enter your email', required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password, 'Password' %>
+        <%= f.password_field :password, placeholder: 'Enter your password', required: true %>
+      </div>
+      <%= f.hidden_field :role, value: 'student' %>
+      <%= f.submit 'Create Account', class: 'account-setup-button' %>
+    <% end %>
+  </div>
 </div>
