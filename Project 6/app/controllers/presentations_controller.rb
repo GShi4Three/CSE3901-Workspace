@@ -3,6 +3,20 @@ class PresentationsController < ApplicationController
 
   def index
     @presentations = Presentation.includes(:users).all
+
+    @presentations_with_scores = @presentations.map do |presentation|
+      # Calculate total average score if evaluations exist
+      total_average_score = if presentation.evaluations.any?
+                              (presentation.evaluations.average(:content_score).to_f +
+                               presentation.evaluations.average(:organization_score).to_f +
+                               presentation.evaluations.average(:time_pacing_score).to_f +
+                               presentation.evaluations.average(:professionalism_score).to_f) / 4
+                            else
+                              nil
+                            end
+  
+      { presentation: presentation, total_average_score: total_average_score }
+    end
   end
   
   def new
@@ -18,12 +32,12 @@ class PresentationsController < ApplicationController
     @average_organization_score = @evaluations.average(:organization_score).to_f.round(2)
     @average_time_pacing_score = @evaluations.average(:time_pacing_score).to_f.round(2)
     @average_professionalism_score = @evaluations.average(:professionalism_score).to_f.round(2)
-    @total_average_score = (
+    @total_average_score = ((
       @average_content_score + 
       @average_organization_score + 
       @average_time_pacing_score + 
       @average_professionalism_score
-    ) / 4
+    ) / 4).to_f.round(2)
 
     # Check if the user has already submitted an evaluation
     existing_evaluation = @presentation.evaluations.find_by(user_id: current_user.id)
