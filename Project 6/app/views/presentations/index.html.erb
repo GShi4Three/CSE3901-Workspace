@@ -2,7 +2,9 @@
     <%= stylesheet_link_tag :presentations, "data-turbo-track": "reload" %>
 </head>
 
- <% if flash[:notice] %>
+ 
+<div class="presentations-container">
+  <% if flash[:notice] %>
     <div class="alert alert-success">
       <%= flash[:notice] %>
       <% flash.discard(:notice) %> <!-- Clears the notice -->
@@ -13,7 +15,6 @@
       <% flash.discard(:notice) %> <!-- Clears the notice -->
     </div>
   <% end %>
-<div class="presentations-container">
   <h1>Presentations</h1>
     <div class="presentation-cards">
       <% @presentations.each do |presentation| %>
