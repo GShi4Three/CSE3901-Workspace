@@ -4,16 +4,17 @@
 
 <h1>Roster Management</h1>
 
-<% if flash[:notice] %>
+ <% if flash[:notice] %>
     <div class="alert alert-success">
       <%= flash[:notice] %>
+      <% flash.discard(:notice) %> <!-- Clears the notice -->
     </div>
   <% elsif flash[:alert] %>
     <div class="alert alert-danger">
       <%= flash[:alert] %>
+      <% flash.discard(:notice) %> <!-- Clears the notice -->
     </div>
   <% end %>
-
 <% if @users.present? %>
   <table class="roster-table">
     <thead>
