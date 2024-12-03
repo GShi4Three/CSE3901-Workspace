@@ -1,0 +1,61 @@
+<head>
+  <%= stylesheet_link_tag :evaluations, "data-turbo-track": "reload" %>
+</head>
+
+<div>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+      <% flash.discard(:notice) %> 
+    </div>
+  <% elsif flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+      <% flash.discard(:alert) %> 
+    </div>
+  <% end %>
+</div>
+
+<div class="evaluation-container">
+  <!-- Left Section: Presentation Details -->
+  <div class="presentation-details">
+    <img src="<%= @presentation.image || 'https://placehold.co/800x600' %>" alt="Presentation Image" class="presentation-image">
+    <h1 class="presentation-title"><%= @presentation.name %></h1>
+    <p class="presentation-presenters">
+      <strong>Presenters:</strong> <%= @presentation.users.map(&:name).join(', ') %>
+    </p>
+  </div>
+
+  <!-- Right Section: Evaluation Form -->
+  <div class="evaluation-form">
+    <h2>Evaluation</h2>
+    <%= form_with model: @evaluation, url: presentation_evaluations_path(@presentation), method: :post, local: true do |f| %>
+      <!-- Score Inputs -->
+      <div class="form-group">
+        <%= f.label :content_score, 'Content (1-10)' %>
+        <%= f.number_field :content_score, min: 1, max: 10, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :organization_score, 'Organization (1-10)' %>
+        <%= f.number_field :organization_score, min: 1, max: 10, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :time_pacing_score, 'Time & Pacing (1-10)' %>
+        <%= f.number_field :time_pacing_score, min: 1, max: 10, required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :professionalism_score, 'Professionalism (1-10)' %>
+        <%= f.number_field :professionalism_score, min: 1, max: 10, required: true %>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="form-group">
+        <%= f.label :comments, 'Comments' %>
+        <%= f.text_area :comments, rows: 5, placeholder: 'Leave your comments here...', required: true %>
+      </div>
+
+      <!-- Submit Button -->
+      <%= f.submit 'Submit Evaluation', class: 'submit-button' %>
+    <% end %>
+  </div>
+</div>

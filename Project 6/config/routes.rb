@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     namespace :v1 do
       # Routes for Users
       resources :users, only: [:index, :show, :create]
-      # Routes for Evaluations (Nested under Presentations)
-      resources :presentations do
-        resources :evaluations, only: [:index, :show, :create]
-      end
     end
   end
 
@@ -21,8 +17,14 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  resources :presentations, only: [:index, :new, :create, :destroy]
+  resources :presentations, only: [:index, :new, :create, :destroy, :show]
 
+  resources :evaluations, only: [:show]
+
+  resources :presentations, only: [:index, :show] do
+    resources :evaluations, only: [:create]
+  end
+  
   # Defines the root path route ("/")
   root "login#index"
 
@@ -47,5 +49,5 @@ Rails.application.routes.draw do
   delete '/roster/:id', to: 'roster#destroy', as: 'delete_user'
 
   delete '/logout', to: 'sessions#destroy', as: 'logout'
-  
+
 end

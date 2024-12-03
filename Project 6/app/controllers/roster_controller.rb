@@ -34,7 +34,8 @@ class RosterController < ApplicationController
   end
 
   def authorize_ta
-    user = User.find(session[:user_id])
-    redirect_to '/presentations', alert: 'Access denied!' unless user.role == 'ta'
+    if current_user&.role != 'ta' && request.path == roster_path
+      redirect_to presentations_path, alert: 'Access denied! Only TAs can access this page.'
+    end
   end
 end

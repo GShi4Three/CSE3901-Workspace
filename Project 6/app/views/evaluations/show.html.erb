@@ -1,0 +1,28 @@
+<div>
+  <div>
+    <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+      <% flash.discard(:notice) %> 
+    </div>
+    <% elsif flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+      <% flash.discard(:alert) %> 
+    </div>
+    <% end %>
+  </div>
+  <h1>Your Submitted Evaluation</h1>
+
+  <div class="evaluation-details">
+    <p><strong>Presentation:</strong> <%= @evaluation.presentation.name %></p>
+    <p><strong>Content:</strong> <%= @evaluation.content_score %></p>
+    <p><strong>Organization:</strong> <%= @evaluation.organization_score %></p>
+    <p><strong>Time & Pacing:</strong> <%= @evaluation.time_pacing_score %></p>
+    <p><strong>Professionalism:</strong> <%= @evaluation.professionalism_score %></p>
+    <p><strong>Comments:</strong> <%= @evaluation.comments %></p>
+    <p><strong>Submitted by:</strong> <%= @evaluation.user.name %></p>
+  </div>
+
+  <%= link_to 'Back to Presentations', presentations_path, class: 'btn btn-primary' %>
+</div>

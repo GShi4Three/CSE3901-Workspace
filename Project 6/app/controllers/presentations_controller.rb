@@ -15,6 +15,19 @@ class PresentationsController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @presentation = Presentation.find(params[:id])
+  
+    # Check if the user has already submitted an evaluation
+    existing_evaluation = @presentation.evaluations.find_by(user_id: current_user.id)
+    if existing_evaluation
+      redirect_to evaluation_path(existing_evaluation), alert: "You have already submitted an evaluation for this presentation."
+      return
+    end
+  
+    @evaluation = Evaluation.new
+  end
+  
   def create
 
     Rails.logger.debug "Parameters received: #{params.inspect}"
@@ -36,7 +49,7 @@ class PresentationsController < ApplicationController
       redirect_to presentations_ta_path, alert: 'Failed to delete presentation.'
     end
   end
-
+  
   private
 
   def presentation_params
@@ -48,7 +61,7 @@ class PresentationsController < ApplicationController
   end
 
   def authorize_ta
-    if current_user&.role != 'ta' && request.path != presentations_path
+    if current_user&.role != 'ta' && request.path == presentations_ta_path
       redirect_to presentations_path, alert: 'Access denied! Only TAs can access this page.'
     end
   end
