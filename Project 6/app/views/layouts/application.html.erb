@@ -25,16 +25,22 @@
 
   <body>
     <div> 
-     <header>
-  <div class="header-container">
-    <% if current_user %> <!-- Ensure there's a logged-in user -->
-      <%= link_to 'Roster', roster_path, class: 'btn-roster' %>
-      <%= link_to 'Presentations', presentations_path, class:'btn-presentations' %>
-      <%= link_to 'Sign Out', logout_path, method: :delete, class: 'btn-signout', data: { confirm: 'Are you sure you want to sign out?' } %>
-    <% end %>
-  </div>
-</header>
-
+      <header>
+        <div class="header-container">
+          <div class="navbar-left">
+            <% if current_user %>
+              <p>Welcome, <%= current_user.name %>!</p>
+            <% end %>
+          </div>
+          <div class="navbar-right">
+          <% if current_user %> <!-- Ensure there's a logged-in user -->
+            <%= link_to 'Roster', roster_path, class: 'btn-roster' %>
+            <%= link_to 'Presentations', presentations_path, class:'btn-presentations' %>
+            <%= link_to 'Sign Out', logout_path, method: :delete, class: 'btn-signout', data: { confirm: 'Are you sure you want to sign out?' } %>
+          <% end %>
+          </div>
+        </div>
+      </header>
     <div>
     <%= yield %>
   </body>

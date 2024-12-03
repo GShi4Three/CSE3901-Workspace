@@ -25,11 +25,20 @@ header {
     z-index: 1000;
   }
   
+  .navbar-left{
+    color: #c82333;
+    font-weight: bold;
+    margin-top: 5px;
+  }
   
+  .navbar-right {
+    display: flex;
+  }
+
   /* Sign Out button styling */
   .btn-signout {
-    font-size: 14px;
-    padding: 8px 15px;
+    font-size: 16px;
+  padding: 20px;
     color: white;
     background-color: #dc3545;
     border: none;
@@ -44,8 +53,8 @@ header {
   
   /* Roster button styling */
 .btn-roster {
-  font-size: 14px;
-  padding: 8px 15px;
+  font-size: 16px;
+  padding: 20px;
   color: white;
   background-color: #007bff;
   border: none;
@@ -58,23 +67,20 @@ header {
 .btn-roster:hover {
   background-color: #0056b3;
 }
+  
+/* Presentations button styling */
+.btn-presentations {
+  font-size: 16px;
+  padding: 20px;
+  color: white;
+  background-color: #0ce917;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px; /* Add space between Roster and Sign Out buttons */
+  cursor: pointer;
+}
 
-
-  
-  /* Presentations button styling */
-  .btn-presentations {
-    font-size: 14px;
-    padding: 8px 15px;
-    color: white;
-    background-color: #0ce917;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    margin-right: 10px; /* Add space between Roster and Sign Out buttons */
-    cursor: pointer;
-  }
-  
-  .btn-presentations:hover {
-    background-color: #09a811;
-  }
-  
+.btn-presentations:hover {
+  background-color: #09a811;
+}
