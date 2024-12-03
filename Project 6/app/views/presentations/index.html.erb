@@ -1,5 +1,5 @@
 <head>
-    <%= stylesheet_link_tag :presentations, "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :new_presentation, "data-turbo-track": "reload" %>
 </head>
 
  
@@ -7,12 +7,12 @@
   <% if flash[:notice] %>
     <div class="alert alert-success">
       <%= flash[:notice] %>
-      <% flash.discard(:notice) %> <!-- Clears the notice -->
+      <% flash.discard(:notice) %> 
     </div>
   <% elsif flash[:alert] %>
     <div class="alert alert-danger">
       <%= flash[:alert] %>
-      <% flash.discard(:notice) %> <!-- Clears the notice -->
+      <% flash.discard(:alert) %> 
     </div>
   <% end %>
   <h1>Presentations</h1>

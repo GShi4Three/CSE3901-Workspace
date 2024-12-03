@@ -44,11 +44,13 @@ class PresentationsController < ApplicationController
   end
 
   def authenticate_user
-    redirect_to '/', alert: 'Please log in first!' unless session[:user_id]
+    redirect_to '/' unless session[:user_id]
   end
 
   def authorize_ta
-    redirect_to '/presentations', alert: 'Access denied!' unless session[:user_id]
+    if current_user&.role != 'ta' && request.path != presentations_path
+      redirect_to presentations_path, alert: 'Access denied! Only TAs can access this page.'
+    end
   end
 
 end

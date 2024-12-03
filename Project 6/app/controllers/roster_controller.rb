@@ -30,7 +30,7 @@ class RosterController < ApplicationController
   private
 
   def authenticate_user
-    redirect_to '/', alert: 'Please log in first!' unless session[:user_id]
+    redirect_to '/' unless session[:user_id]
   end
 
   def authorize_ta

@@ -2,7 +2,21 @@
     <%= stylesheet_link_tag :evaluations, "data-turbo-track": "reload" %>
 </head>
 
+<div>
+   <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+      <% flash.discard(:notice) %> 
+    </div>
+  <% elsif flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+      <% flash.discard(:alert) %> 
+    </div>
+  <% end %>
+</div>
 <div class="evaluation-container">
+  
   <!-- Left Section: Presentation Details -->
   <div class="presentation-details">
     <img src="https://placehold.co/800x600" alt="Presentation Image" class="presentation-image">

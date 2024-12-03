@@ -29,9 +29,11 @@
   .btn-primary {
     background-color: #007bff;
     color: white;
+    text-decoration: none;
   }
   
   .btn-danger {
+    text-decoration: none;
     background-color: #dc3545;
     color: white;
   }

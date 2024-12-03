@@ -40,10 +40,12 @@ Rails.application.routes.draw do
 
   get '/evaluations/ta', to: 'evaluations#index_ta' # Route for the student evaluations page
 
-  get '/roster', to: 'roster#index'
+  get '/roster', to: 'roster#index', as: 'roster'
 
   patch '/roster/:id/role', to: 'roster#update_role', as: 'update_user_role'
 
   delete '/roster/:id', to: 'roster#destroy', as: 'delete_user'
 
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
+  
 end

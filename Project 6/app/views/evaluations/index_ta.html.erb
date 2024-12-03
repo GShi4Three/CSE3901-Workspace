@@ -1,3 +1,20 @@
+<head>
+    <%= stylesheet_link_tag :evaluations, "data-turbo-track": "reload" %>
+</head>
+
+<div>
+   <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+      <% flash.discard(:notice) %> 
+    </div>
+  <% elsif flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+      <% flash.discard(:alert) %> 
+    </div>
+  <% end %>
+</div>
 <div class="ta-evaluations-container">
   <!-- Top Section: Presentation Details and Average Scores -->
   <div class="top-section">

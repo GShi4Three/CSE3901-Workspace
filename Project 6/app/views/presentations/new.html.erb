@@ -1,26 +1,33 @@
-<div>
-<h1>Create a New Presentation</h1>
+<head>
+  <%= stylesheet_link_tag :presentations, media: "all", "data-turbo-track": "reload" %>
+</head>
 
-<%= form_with model: @presentation, url: presentations_path, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "Presentation Title" %>
-    <%= f.text_field :name, placeholder: "Enter the presentation title", required: true %>
-  </div>
+<div class="container presentation-container">
+      <h1 class="presentation-title">Create a New Presentation</h1>
 
-  <div class="form-group">
-    <%= f.label :user_ids, "Select Presenters" %>
-    <%= f.collection_check_boxes :user_ids, @users, :id, :name do |cb| %>
-      <div class="checkbox">
-        <%= cb.check_box %>
-        <%= cb.label %>
-      </div>
-    <% end %>
-  </div>
+      <%= form_with model: @presentation, url: presentations_path, local: true, class: "needs-validation" do |f| %>
+        <div class="presentation-form-group">
+          <%= f.label :name, "Presentation Title", class: "presentation-form-label" %>
+          <%= f.text_field :name, placeholder: "Enter the presentation title", class: "presentation-form-control", required: true %>
+        </div>
 
-  <%= f.submit "Create Presentation", class: "btn btn-primary" %>
+        <div class="presentation-form-group">
+          <%= f.label :user_ids, "Select Presenters", class: "presentation-form-label" %>
+          <div class="presentation-checkbox">
+            <%= f.collection_check_boxes :user_ids, @users, :id, :name do |cb| %>
+              <div class="form-check">
+                <%= cb.check_box class: "form-check-input" %>
+                <%= cb.label class: "presentation-checkbox-label" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
 
-  <%= link_to "Back to Presentations", presentations_ta_path, class: "btn btn-secondary" %>
-
-<% end %>
-
+        <div>
+          <%= f.submit "Create Presentation", class: "presentation-button" %>
+        </div>
+        <div>
+          <%= link_to "Back to Presentations", presentations_ta_path, class: "btn presentation-back-button" %>
+        </div>
+      <% end %>
 </div>

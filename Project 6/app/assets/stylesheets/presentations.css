@@ -44,8 +44,17 @@
   }
   
   .blank-presentation .add-icon {
-    font-size: 48px;
+    font-size: 96px;
     color: #e53935;
+    text-decoration: none;
+  }
+
+  .blank-presentation .new-text {
+    color: #e53935;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-decoration: none;
   }
   
   .template-presentation img {
@@ -93,3 +102,14 @@
     margin-top: 8px;
   }
   
+  .delete-button {
+    padding: 10px;
+    background-color: #e53935;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+  }

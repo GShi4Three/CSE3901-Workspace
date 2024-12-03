@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 user = User.create!(name: 'John', email: 'test@test', password: 'test', role: 'student')
+userTA = User.create!(name: 'ta', email: 'ta@ta', password: 'ta', role: 'ta')
 
 presentation = Presentation.create!(name: 'AI in Healthcare', image: 'https://placehold.co/400x300', score: 8.5)
 

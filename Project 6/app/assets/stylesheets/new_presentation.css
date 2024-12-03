@@ -1,0 +1,75 @@
+/* presentation_form.css */
+
+/* General container styling */
+.presentation-container {
+  background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+/* Heading styling */
+.presentation-title {
+  text-align: center;
+  color: #dc3545; /* Bootstrap's danger color */
+  margin-bottom: 1.5rem;
+}
+
+/* Form group styling */
+.presentation-form-group {
+  margin-bottom: 1rem;
+}
+
+.presentation-form-label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.presentation-form-control {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Checkboxes */
+.presentation-checkbox {
+  margin-bottom: 0.5rem;
+}
+
+.presentation-checkbox-label {
+  margin-left: 0.5rem;
+}
+
+/* Buttons */
+.presentation-button {
+  padding: 10px;
+  background-color: #e53935;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.presentation-back-button {
+  background-color: #6c757d;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-left: 100px;
+  text-decoration: none;
+}

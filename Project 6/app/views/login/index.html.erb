@@ -10,14 +10,15 @@
    <% if flash[:notice] %>
     <div class="alert alert-success">
       <%= flash[:notice] %>
-      <% flash.discard(:notice) %> <!-- Clears the notice -->
+      <% flash.discard(:notice) %> 
     </div>
   <% elsif flash[:alert] %>
     <div class="alert alert-danger">
       <%= flash[:alert] %>
-      <% flash.discard(:notice) %> <!-- Clears the notice -->
+      <% flash.discard(:alert) %> 
     </div>
   <% end %>
+    
 
   <%= form_with url: '/login', method: :post, local: true, class: "login-form" do |f| %>
     <div class="form-group">
