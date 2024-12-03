@@ -6,8 +6,8 @@
     <h1>Create a New Presentation</h1>
     <div class="presentation-options">
       <div class="option blank-presentation">
-        <div class="add-icon">+</div>
-        <p>Blank Presentation</p>
+                <%= link_to '+', new_presentation_path, class: 'add-icon' %>
+                <p>Create New Presentation</p>
       </div>
     </div>
   </div>
@@ -18,9 +18,10 @@
       <% @presentations.each do |presentation| %>
         <div class="card">
           <img src="<%= presentation.image || 'https://placehold.co/400x300' %>" alt="Presentation Image">
-          <p class="card-title"><%= presentation.name %></p>
+          <p class="card-title"><%= presentation.name || 'N/A' %></p>
           <p class="card-score">Score: <strong><%= presentation.score || 'N/A' %></strong></p>
           <p class="card-presenters">By: <%= presentation.users.map(&:name).join(', ') %></p>
+          <%= link_to 'Delete', presentation_path(presentation), method: :delete, data: { confirm: 'Are you sure you want to delete this presentation?' }, class: 'btn btn-danger' %>
         </div>
       <% end %>
     </div>

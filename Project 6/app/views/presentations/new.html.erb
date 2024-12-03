@@ -2,8 +2,8 @@
 
 <%= form_with model: @presentation, url: presentations_path, local: true do |f| %>
   <div class="form-group">
-    <%= f.label :title, "Presentation Title" %>
-    <%= f.text_field :title, placeholder: "Enter the presentation title", required: true %>
+    <%= f.label :name, "Presentation Title" %>
+    <%= f.text_field :name, placeholder: "Enter the presentation title", required: true %>
   </div>
 
   <div class="form-group">

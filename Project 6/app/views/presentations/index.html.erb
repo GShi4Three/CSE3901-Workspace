@@ -7,7 +7,7 @@
       <% @presentations.each do |presentation| %>
         <div class="card">
           <img src="<%= presentation.image || 'https://placehold.co/400x300' %>" alt="Presentation Image">
-          <p class="card-title"><%= presentation.title %></p>
+          <p class="card-title"><%= presentation.name || 'N/A'%></p>
           <p class="card-score">Score: <strong><%= presentation.score || 'N/A' %></strong></p>
           <p class="card-presenters">By: <%= presentation.users.map(&:name).join(', ') %></p>
         </div>
